@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         moss: {
-          50:  "#f0fdf0",
+          50: "#f0fdf0",
           100: "#dcfce0",
           500: "#22c55e",
           600: "#16a34a",
