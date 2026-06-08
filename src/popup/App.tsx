@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/shared/components/Header";
 import StatusBadge from "@/shared/components/StatusBadge";
-
+import manifest from "../../public/manifest.json"
 const App: React.FC = () => {
   return (
     <div className="flex flex-col h-full min-h-[420px] bg-moss-950 p-4 gap-4">
@@ -18,7 +18,7 @@ const App: React.FC = () => {
       </div>
 
       <footer className="text-moss-900 text-[10px] text-center tracking-widest">
-        MOSS v0.1.0 · MV3
+        MOSS {manifest.version}
       </footer>
     </div>
   );

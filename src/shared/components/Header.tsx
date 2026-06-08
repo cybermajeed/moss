@@ -1,9 +1,9 @@
 import React from "react";
 
 const Header: React.FC = () => (
-  <div className="flex items-center gap-2 border-b border-moss-900 pb-3">
-    <div className="w-6 h-6 rounded bg-moss-500 flex items-center justify-center">
-      <span className="text-moss-950 text-xs font-bold">M</span>
+  <div className="bg-red-500 flex items-center gap-2 border-b border-moss-900 pb-3">
+    <div className="w-6 h-6 rounded bg-transparent flex items-center justify-center">
+      <img className=" rounded-lg" src="/icons/icon48.png" alt="logo" />
     </div>
     <div>
       <h1 className="text-moss-50 text-sm font-bold tracking-widest">MOSS</h1>
