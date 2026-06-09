@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/shared/components/Header";
-import StatusBadge from "@/shared/components/StatusBadge";
 import Footer from "@/shared/components/Footer";
+import { Home } from "lucide-react";
 
 const App: React.FC = () => {
   return (
@@ -9,7 +9,9 @@ const App: React.FC = () => {
       <Header />
       <div className="flex items-center justify-between border border-moss-900 rounded px-3 py-2">
         <span className="text-moss-500 text-xs tracking-widest uppercase">System</span>
-        <StatusBadge status="idle" />
+        <div>
+          <Home size={30} className="text-moss-200" />
+        </div>
       </div>
 
       <div className="flex-1 border border-moss-900 rounded p-3">
