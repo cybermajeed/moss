@@ -1,12 +1,13 @@
+import { useState } from "react";
 import Editor from "./Editor";
 import Sidebar from "./Sidebar";
 
 export default function Container() {
-    //TODO: add usestate for navopenclose?
+    const [open, setOpen] = useState(true);
     return (
-        <div className="flex flex-row gap-0 bg-moss-700 h-screen p-2 rounded-md">
-            <Sidebar />
-            <Editor />
+        <div className="flex flex-row gap-0 bg-moss-700 h-screen p-0 rounded-md">
+            <Sidebar open={open} />
+            <Editor open={open} setOpen={setOpen} />
         </div>
     );
 
