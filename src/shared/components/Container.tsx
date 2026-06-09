@@ -2,6 +2,8 @@ import { useState } from "react";
 import Editor from "./Editor";
 import Sidebar from "./Sidebar";
 
+//TODO: put textarea in editor, then store it locally
+
 export default function Container() {
     const [open, setOpen] = useState(true);
     return (

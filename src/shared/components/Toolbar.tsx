@@ -1,19 +1,18 @@
-import { ALargeSmall, Palette } from "lucide-react";
-import React from "react";
+import { Palette, PanelRight } from "lucide-react";
 
-const buttonStyle: string = " bg-moss-950 transition-all rounded-md p-1 active:bg-moss-700 hover:bg-moss-800";
+const buttonStyle: string = " bg-moss-950 transition-all rounded-md p-1 hover:bg-moss-800";
 
-const Toolbar: React.FC = () => (
+const Toolbar = () => (
     <div className="bg-moss-700 flex flex-row gap-3 items-center p-2 rounded-md">
         <div className="font-semibold grow-[2] flex flex-row gap-2 items-center">
             <img src="/icons/icon48.png" width={30} alt="logo" />
             MOSS
         </div>
-        <button className={buttonStyle} title="Increase font size (Shift click to decrease)">
-            <ALargeSmall className="grow text-moss-100" />
-        </button>
-        <button className={buttonStyle} title="Change Theme">
+        <button className={buttonStyle} title="Switch theme">
             <Palette className="grow text-moss-100" />
+        </button>
+        <button className={buttonStyle} title="Open in side panel">
+            <PanelRight className="grow text-moss-100" />
         </button>
     </div>
 );
