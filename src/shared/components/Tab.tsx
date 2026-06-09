@@ -1,10 +1,16 @@
-import React from "react";
+import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { useState } from "react";
 
-const Tab: React.FC = () => (
-    <div className="bg-moss-900 col-span-2 h-fit p-2 rounded-md">
-        Tab
-    </div>
-);
-
-export default Tab
-
+export default function Tab() {
+    const [open, setOpen] = useState(true);
+    return (
+        <div className="bg-moss-800 flex flex-row gap-2 items-center col-span-2 p-2 rounded-md">
+            <button onClick={() => setOpen(!open)}>
+                {open ? <PanelLeftClose /> : <PanelLeftOpen />}
+            </button>
+            <p>
+                Tab
+            </p>
+        </div>
+    )
+}
