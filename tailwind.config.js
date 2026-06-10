@@ -17,6 +17,10 @@ export default {
           900: "#064e3b",
           950: "#022c22",
         },
+        dracula: {
+          bg: "#282a36",
+          bgdark: "#20212c",
+        },
       },
       fontFamily: {
         mono: ["'JetBrains Mono'", "monospace"],

@@ -3,7 +3,7 @@ import { Palette, PanelRight, SquareArrowOutUpRight } from "lucide-react";
 
 const Toolbar = () => {
 
-    const buttonStyle: string = "bg-moss-950 transition-all rounded-md p-1 hover:bg-moss-800";
+    const buttonStyle: string = "bg-moss-900 transition-all rounded-md p-1 hover:bg-moss-800";
     const hideIfNotPopup: string = (window.location.pathname.includes("newtab")) ? "hidden" : "";
 
     const openInNewTab = () => {

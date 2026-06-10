@@ -1,15 +1,22 @@
-import { useState } from "react";
-import Editor from "./Editor";
+import { useEffect, useRef, useState } from "react";
+import EditorArea from "./EditorArea";
 import Sidebar from "./Sidebar";
 
 //TODO: put textarea in editor, then store it locally
-//TODO: remove unnecessary files
 export default function Container() {
     const [open, setOpen] = useState(true);
+    const [height, setHeight] = useState(0);
+
+    const divref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (divref.current) {
+            setHeight(divref.current.clientHeight);
+        }
+    })
     return (
-        <div className="flex flex-row gap-0 bg-moss-700 h-screen p-0 rounded-md">
+        <div ref={divref} className="flex flex-row gap-2 bg-transparent h-full p-0 rounded-md">
             <Sidebar open={open} />
-            <Editor open={open} setOpen={setOpen} />
+            <EditorArea height={height} open={open} setOpen={setOpen} />
         </div>
     );
 
