@@ -21,8 +21,9 @@ export default function EditorArea({ height, open, setOpen }: openProps) {
                 </button>
                 |
                 <span className="FILENAME grow-[2]">file1.js</span>
-                <button className="">
-                    <Play />
+                <button className="text-[15px] transition-all hover:bg-moss-800 px-2 py-1 rounded-md flex flex-row gap-2 items-center">
+                    <Play size={15} />
+                    ctrl + enter
                 </button>
             </div>
 
@@ -30,7 +31,7 @@ export default function EditorArea({ height, open, setOpen }: openProps) {
                 <ReactCodeMirror
                     value={code}
                     theme={dracula}
-                    height={(height - 52).toString() + "px"}
+                    height={(height - 60).toString() + "px"}
                     extensions={[javascript()]}
                     onChange={val => setCode(val)}
                 />
