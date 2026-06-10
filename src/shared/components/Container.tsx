@@ -3,7 +3,7 @@ import Editor from "./Editor";
 import Sidebar from "./Sidebar";
 
 //TODO: put textarea in editor, then store it locally
-
+//TODO: remove unnecessary files
 export default function Container() {
     const [open, setOpen] = useState(true);
     return (
