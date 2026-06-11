@@ -1,1 +1,1 @@
-console.log("...");
+alert("inside webpage");
