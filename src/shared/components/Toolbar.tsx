@@ -5,7 +5,7 @@ const Toolbar = () => {
 
     const buttonStyle: string = "bg-moss-900 transition-all rounded-md p-1 hover:bg-moss-800";
     const hideIfNotPopup: string = (window.location.pathname.includes("newtab")) ? "hidden" : "";
-
+    const iconsize = 20;
     const openInNewTab = () => {
         chrome.tabs.create({
             url: chrome.runtime.getURL("src/popup/newtab.html"),
@@ -22,6 +22,7 @@ const Toolbar = () => {
         })
         window.close()
     }
+
     return (
         <div className="bg-moss-700 flex flex-row gap-3 items-center p-2 rounded-md">
             <div className="font-semibold grow-[2] flex flex-row gap-2 items-center">
@@ -29,13 +30,13 @@ const Toolbar = () => {
                 MOSS
             </div>
             <button className={buttonStyle} title="Switch theme">
-                <Palette className="grow text-moss-100" />
+                <Palette size={iconsize} className="grow text-moss-100" />
             </button>
             <button className={`${hideIfNotPopup} ${buttonStyle}`} title="Open in side panel" onClick={openInSidePanel}>
-                <PanelRight className="grow text-moss-100" />
+                <PanelRight size={iconsize} className="grow text-moss-100" />
             </button>
             <button className={`${hideIfNotPopup} ${buttonStyle}`} title="Open in new tab" onClick={openInNewTab}>
-                <SquareArrowOutUpRight className="grow text-moss-100" />
+                <SquareArrowOutUpRight size={iconsize} className="grow text-moss-100" />
             </button>
         </div>
     );

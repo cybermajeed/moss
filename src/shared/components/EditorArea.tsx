@@ -17,7 +17,7 @@ export default function EditorArea({ height, open, setOpen }: openProps) {
         <div className="bg-transparent h-full w-full flex flex-col gap-2">
             <div className={`TAB bg-moss-700 flex flex-row gap-2 items-center p-2 rounded-md`}>
                 <button title={`${open ? 'Close' : 'Open'} sidebar`} onClick={() => { setOpen(!open); console.log(open); }}>
-                    {open ? <PanelLeftClose /> : <PanelLeftOpen />}
+                    {open ? <PanelLeftClose size={20} /> : <PanelLeftOpen size={20} />}
                 </button>
                 |
                 <span className="FILENAME grow-[2]">file1.js</span>
