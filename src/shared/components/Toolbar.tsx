@@ -12,7 +12,6 @@ const Toolbar = () => {
         })
     }
     const openInSidePanel = async () => {
-        console.log(chrome.sidePanel);
         await chrome.sidePanel.setOptions({
             path: "src/popup/newtab.html",
             enabled: true
