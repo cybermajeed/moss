@@ -13,6 +13,12 @@ interface openProps {
 export default function EditorArea({ height, open, setOpen }: openProps) {
     const [code, setCode] = useState(`//code here`);
     //TODO: fuuu, now write code -> append it in webpage
+    const sendMsg = (code: any) => {
+        chrome.runtime.sendMessage({
+            type: "RUN_SCRIPT",
+            code
+        })
+    }
     return (
         <div className="bg-transparent h-full w-full flex flex-col gap-2">
             <div className={`TAB bg-moss-700 flex flex-row gap-2 items-center p-2 rounded-md`}>
@@ -22,7 +28,7 @@ export default function EditorArea({ height, open, setOpen }: openProps) {
                 |
                 <span className="FILENAME grow-[2]">file1.js</span>
                 <button className="text-[15px] transition-all hover:bg-moss-800 px-2 py-1 rounded-md flex flex-row gap-2 items-center">
-                    <Play size={15} />
+                    <Play onClick={() => sendMsg(code)} size={15} />
                     ctrl + enter
                 </button>
             </div>
