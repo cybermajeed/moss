@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">MOSS — Modular Override Script System</h1>
+<h1 align="center">MOSS — Modular Override Script System</h1>
 
 ---
 
