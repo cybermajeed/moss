@@ -21,7 +21,7 @@ const App = () => {
   }, [dark]);
   return (
     <ThemeContext.Provider value={{ dark, setDark }}>
-      <div className={`flex flex-col w-full h-dvh p-3 gap-3 bg-moss-300 dark:bg-moss-900`}>
+      <div className={`overflow-auto flex flex-col w-full h-dvh p-3 gap-3 bg-moss-300 dark:bg-moss-900`}>
         <Toolbar />
         <Container />
       </div>

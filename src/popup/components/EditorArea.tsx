@@ -87,7 +87,7 @@ export default function EditorArea({ open, setOpen, activeScript, onSave }: Edit
           height="100%"
           extensions={[javascript()]}
           onChange={handleChange}
-          style={{ height: "100%" }}
+          style={{ height: "100%", width: "100%", padding: "3px 5px" }}
         />
       </div>
     </div>

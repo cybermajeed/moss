@@ -47,7 +47,7 @@ export default function Sidebar({
   if (!open) return null;
 
   return (
-    <div className=" flex flex-col w-[300px] shrink-0 bg-moss-50 dark:bg-moss-950 text-moss-700 dark:text-moss-200 gap-3 p-2 rounded-md overflow-hidden ">
+    <div className=" flex flex-col w-fit max-w-[250px] shrink-0 bg-moss-50 dark:bg-moss-950 text-moss-700 dark:text-moss-200 gap-3 p-2 rounded-md overflow-hidden ">
       <button
         onClick={createNewFile}
         className=" hover:opacity-75 font-semibold w-full flex flex-row gap-2 items-center justify-center bg-moss-500 dark:bg-moss-800 text-moss-900 dark:text-moss-200 py-2 px-1 rounded-md cursor-pointer text-sm "      >

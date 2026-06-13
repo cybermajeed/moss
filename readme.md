@@ -55,11 +55,11 @@ npm run build
 
 ### Creating a snippet
 
-| Step                                        |                   Screenshot                   |
-| :------------------------------------------ | :--------------------------------------------: |
-| 1. Click **New Snippet** and give it a name | !["new snippet"](public/assets/newSnippet.png) |
-| 2. Write your JavaScript in the editor      |               _(add screenshot)_               |
-| 3. Hit **save** (`Ctrl+S`)                  |               _(add screenshot)_               |
+| Step                                        |                   Screenshot                    |
+| :------------------------------------------ | :---------------------------------------------: |
+| 1. Click **New Snippet** and give it a name | !["new snippet"](public/assets/newSnippet.png)  |
+| 2. Write your JavaScript in the editor      | !["new snippet"](public/assets/snippet1.png) \_ |
+| 3. Hit **save** (`Ctrl+S`)                  |               _(add screenshot)_                |
 
 ### Running a snippet
 
