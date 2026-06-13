@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{ts,tsx,html}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         moss: {
-          50: "#ecfdf5",
-          100: "#d1fae5",
+          50: "#d5ffeb",
+          100: "#c9fce1",
           200: "#a7f3d0",
           300: "#6ee7b7",
           400: "#34d399",
@@ -16,10 +17,6 @@ export default {
           800: "#065f46",
           900: "#064e3b",
           950: "#022c22",
-        },
-        dracula: {
-          bg: "#282a36",
-          bgdark: "#20212c",
         },
       },
       fontFamily: {
