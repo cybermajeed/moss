@@ -19,7 +19,7 @@ const Toolbar = () => {
   const iconsize = 20;
 
   const openInNewTab = () => {
-    chrome.tabs.create({ url: chrome.runtime.getURL("newtab/index.html") });
+    chrome.tabs.create({ url: chrome.runtime.getURL("./src/newtab/index.html") });
   };
 
   const openInSidePanel = async () => {
