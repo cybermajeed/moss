@@ -1,5 +1,5 @@
 import { Moon, PanelRight, SquareArrowOutUpRight, Sun } from "lucide-react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "@/shared/context/ThemeContext";
 
 
