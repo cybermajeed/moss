@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "MOSS – Modular Override Script System",
-  "version": "1.0.0",
-  "description": "MOSS (Modular Override Script System) is a Chrome extension that lets users inject and manage custom JavaScript on any website. Create, edit, enable, and organize scripts directly from the extension popup without opening external pages.",
+  "name": "MOSS v2",
+  "version": "0.1.0",
+  "description": "",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -27,11 +27,15 @@
       "run_at": "document_idle"
     }
   ],
+  "side_panel": {
+    "default_path": "./src/newtab/index.html"
+  },
   "permissions": [
     "storage",
     "activeTab",
     "scripting",
-    "sidePanel"
+    "sidePanel",
+    "tabs"
   ],
   "host_permissions": [
     "<all_urls>"
