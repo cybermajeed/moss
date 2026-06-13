@@ -1,8 +1,12 @@
 # MOSS — Modular Override Script System
 
-<img src="./public//icons/icon-o.png" style="width: 300px; height: auto;">
+---
 
-MOSS is a Chrome extension that lets users inject and manage custom JavaScript on any website. Create, edit, enable, and organize scripts directly from the extension popup without opening external pages.
+<p align="center">
+<img src="./public//icons/icon-o.png" style="width: 300px; height: auto; margin:auto">
+</p>
+
+MOSS is a Chrome extension for creating, managing, and executing custom JavaScript on any website. Write, edit, organize, and run scripts directly from the popup or side panel, with per-site script management, local storage, theme support, and one-click execution. Built for developers, power users, and anyone who wants to customize the web.
 
 ---
 
