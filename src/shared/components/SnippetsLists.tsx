@@ -1,26 +1,14 @@
-import { useEffect, useState } from "react";
 import { mossScript } from "../types/scripts";
 
 
 interface FileProps {
-    filesArray: mossScript[]
+    filesArray: mossScript[];
+    hostName: string
 }
 
-export default function SnippetsLists({ filesArray }: FileProps) {
+export default function SnippetsLists({ filesArray, hostName }: FileProps) {
     const styles = "bg-moss-600 rounded-md px-1 py-3";
-    const [hostName, setHostName] = useState("");
-    useEffect(() => {
-        async function getCurrentTab() {
-            const [tab] = await chrome.tabs.query({
-                active: true,
-                currentWindow: true,
-            });
-            const url = new URL(tab.url!)
-            setHostName(url.hostname + url.pathname || "");
-        }
-        getCurrentTab();
-
-    }, []);
+    //TODO: click list ->  load to code editor
     return (
         <div className="overflow-auto max-h-[420px] LIST p-0 m-0 bg-moss-700 h-full rounded-md flex flex-col gap-2 justify-between ">
             <div className={styles}>
@@ -29,7 +17,7 @@ export default function SnippetsLists({ filesArray }: FileProps) {
                 <ul>
                     {
                         filesArray.map((file) => (
-                            <li key={file.id}>{file.name}</li>
+                            <li className="hover:bg-moss-500 cursor-pointer px-2 p-1 rounded-sm" key={file.id}>{file.name}</li>
                         ))
                     }
                 </ul>

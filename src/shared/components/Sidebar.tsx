@@ -8,6 +8,19 @@ interface openProps {
 }
 export default function Sidebar({ open }: openProps) {
     const [fileNames, setFileNames] = useState<mossScript[]>([]);
+    const [hostName, setHostName] = useState("");
+    useEffect(() => {
+        async function getCurrentTab() {
+            const [tab] = await chrome.tabs.query({
+                active: true,
+                currentWindow: true,
+            });
+            const url = new URL(tab.url!)
+            setHostName(url.hostname + url.pathname || "");
+        }
+        getCurrentTab();
+
+    }, []);
     function createNewFile() {
         let file_name = prompt("FIlename: ");
         if (!file_name) return;
@@ -15,6 +28,7 @@ export default function Sidebar({ open }: openProps) {
             id: crypto.randomUUID(),
             name: file_name,
             code: "",
+            host: hostName,
             enabled: false
         }
         const updatedScripts = [...fileNames, newScript]
@@ -27,8 +41,8 @@ export default function Sidebar({ open }: openProps) {
     //load data
     async function loadScript() {
         const data = await chrome.storage.local.get("savedScripts");
-        console.log("loaded scripts");
-        setFileNames((data.savedScripts ?? []) as mossScript[]);
+        console.log("loaded scripts", (data.savedScripts));
+        setFileNames(data.savedScripts as mossScript[] || []);
     }
     useEffect(() => {
         loadScript()
@@ -42,7 +56,7 @@ export default function Sidebar({ open }: openProps) {
                     New Snippet
                 </button>
             </div>
-            <SnippetsLists filesArray={fileNames} />
+            <SnippetsLists hostName={hostName} filesArray={fileNames} />
         </div>
     );
 }
