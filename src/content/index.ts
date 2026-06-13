@@ -9,7 +9,6 @@ import type { MossScript } from "@/shared/types";
 
   for (const script of toRun) {
     try {
-      // Runs in page MAIN world via background
       await chrome.runtime.sendMessage({
         type: "RUN_SCRIPT",
         payload: { code: script.code },

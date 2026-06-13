@@ -32,7 +32,7 @@ export default function Sidebar({
     onAdd({
       id: crypto.randomUUID(),
       name,
-      code: "// your code here\n",
+      code: "// Your code here\n",
       host: hostName,
       enabled: false,
     });

@@ -41,7 +41,7 @@ export default function EditorArea({ open, setOpen, activeScript, onSave }: Edit
     chrome.runtime.sendMessage({ type: "RUN_SCRIPT", payload: { code: src } });
   };
 
-  // Ctrl+Enter to run, Ctrl+S to save
+  // ctrl + enter for run, ctrl+s for save
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.ctrlKey && e.key === "Enter") { e.preventDefault(); handleRun(); }
     if (e.ctrlKey && e.key === "s") { e.preventDefault(); handleSave(); }

@@ -2,7 +2,7 @@ export interface MossScript {
   id: string;
   name: string;
   code: string;
-  host: string;       // hostname+pathname this script is bound to
+  host: string;
   enabled: boolean;
 }
 

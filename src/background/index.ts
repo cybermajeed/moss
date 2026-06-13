@@ -30,7 +30,7 @@ chrome.runtime.onMessage.addListener(
           sendResponse({ ok: false, error: e.message });
         }
       })();
-      return true; // async response
+      return true;
     }
 
     sendResponse({ ok: false, error: `Unknown type: ${message.type}` });
