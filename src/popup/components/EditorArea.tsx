@@ -14,7 +14,7 @@ interface EditorAreaProps {
 }
 
 export default function EditorArea({ open, setOpen, activeScript, onSave }: EditorAreaProps) {
-  const [code, setCode] = useState("// Select a snippet or create one\n");
+  const [code, setCode] = useState("// select a snippet\n");
   const [dirty, setDirty] = useState(false);
   const { dark } = useTheme();
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function EditorArea({ open, setOpen, activeScript, onSave }: Edit
         </button>
         <span className="text-moss-400 dark:text-moss-500 text-xs">|</span>
         <span className="grow text-sm font-semibold truncate">
-          {activeScript ? activeScript.name : "no file"}
+          {activeScript ? activeScript.name : "No file selected"}
           {dirty && <span className="text-moss-500 dark:text-moss-300 ml-1" title="File not saved">*</span>}
         </span>
         <button
