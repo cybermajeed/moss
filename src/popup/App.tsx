@@ -5,6 +5,22 @@ import { ThemeContext } from "@/shared/context/ThemeContext";
 const App = () => {
   const [dark, setDark] = useState(true);
   useEffect(() => {
+    chrome.storage.local
+      .get("darkMode")
+      .then((data: {
+        darkMode?: boolean
+      }) => {
+        setDark(
+          data.darkMode ?? true
+        );
+      });
+  }, []);
+
+  chrome.storage.local.set({
+    darkMode: dark,
+  });
+
+  useEffect(() => {
     document.documentElement.classList.toggle(
       "dark",
       dark
