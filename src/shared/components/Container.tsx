@@ -14,7 +14,6 @@ export default function Container() {
             setHeight(divref.current.clientHeight);
             setWidth(divref.current.clientWidth);
         }
-
     })
     return (
         <div ref={divref} className="flex flex-row gap-2 bg-transparent h-full p-0 rounded-md">
