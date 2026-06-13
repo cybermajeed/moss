@@ -1,6 +1,6 @@
 import { FilePlusCorner } from "lucide-react";
 import SnippetsLists from "./SnippetsLists";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { mossScript } from "../types/scripts";
 
 interface openProps {
@@ -17,8 +17,22 @@ export default function Sidebar({ open }: openProps) {
             code: "",
             enabled: false
         }
-        setFileNames(prev => [...prev, newScript])
+        const updatedScripts = [...fileNames, newScript]
+        setFileNames(updatedScripts)
+
+        chrome.storage.local.set({
+            savedScripts: updatedScripts
+        }).then(() => console.log("saved scripts: ", updatedScripts))
     }
+    //load data
+    async function loadScript() {
+        const data = await chrome.storage.local.get("savedScripts");
+        console.log("loaded scripts");
+        setFileNames((data.savedScripts ?? []) as mossScript[]);
+    }
+    useEffect(() => {
+        loadScript()
+    }, [])
 
     return (
         <div className={`${!open ? 'hidden' : ''} flex flex-col  w-fit min-w-[250px] bg-moss-700 gap-3 row-span-2 p-2 rounded-md`}>

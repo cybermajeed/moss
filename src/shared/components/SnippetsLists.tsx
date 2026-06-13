@@ -9,24 +9,17 @@ interface FileProps {
 export default function SnippetsLists({ filesArray }: FileProps) {
     const styles = "bg-moss-600 rounded-md px-1 py-3";
     const [hostName, setHostName] = useState("");
-    console.log(filesArray);
     useEffect(() => {
         async function getCurrentTab() {
             const [tab] = await chrome.tabs.query({
                 active: true,
                 currentWindow: true,
             });
-
-            setHostName(tab.url || "");
+            const url = new URL(tab.url!)
+            setHostName(url.hostname + url.pathname || "");
         }
         getCurrentTab();
-        //storage
-        async function saveScripts() {
-            await chrome.storage.local.set({
-                filesArray
-            })
-        }
-        saveScripts()
+
     }, []);
     return (
         <div className="overflow-auto max-h-[420px] LIST p-0 m-0 bg-moss-700 h-full rounded-md flex flex-col gap-2 justify-between ">
@@ -36,7 +29,7 @@ export default function SnippetsLists({ filesArray }: FileProps) {
                 <ul>
                     {
                         filesArray.map((file) => (
-                            <li data-key={file.id}>{file.name}</li>
+                            <li key={file.id}>{file.name}</li>
                         ))
                     }
                 </ul>
