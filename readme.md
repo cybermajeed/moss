@@ -6,9 +6,9 @@ MOSS is a Chrome extension that lets users inject and manage custom JavaScript o
 
 ## Screenshots
 
-|             Light Mode              |             Dark Mode             |
-| :---------------------------------: | :-------------------------------: |
-| !["light"](public/assets/light.png) | !["dark"](public/assets/dark.png) |
+|          Light Mode          |          Dark Mode          |
+| :--------------------------: | :-------------------------: |
+| ![](public/assets/light.png) | ![](public/assets/dark.png) |
 
 ---
 
@@ -55,17 +55,18 @@ npm run build
 
 ### Creating a snippet
 
-| Step                                        |                   Screenshot                    |
-| :------------------------------------------ | :---------------------------------------------: |
-| 1. Click **New Snippet** and give it a name | !["new snippet"](public/assets/newSnippet.png)  |
-| 2. Write your JavaScript in the editor      | !["new snippet"](public/assets/snippet1.png) \_ |
-| 3. Hit **save** (`Ctrl+S`)                  |               _(add screenshot)_                |
+| Step                                              |             Screenshot             |
+| :------------------------------------------------ | :--------------------------------: |
+| 1. Click**New Snippet** and give it a name        | ![](public/assets/newSnippet.png)  |
+| 2. Write your JavaScript in the editor            | ![](public/assets/snippet1.png) \_ |
+| 3. Hit**save** (`Ctrl+S`)                         |  ![](public/assets/save_run.png)   |
+| 4. Automate code (run automatically on page load) |    ![](public/assets/auto.png)     |
 
 ### Running a snippet
 
 | Method   | How                                                                          |
 | :------- | :--------------------------------------------------------------------------- |
-| Manual   | Click ▷ **run** or press `Ctrl+Enter`                                        |
+| Manual   | Click ▷**run** or press `Ctrl+Enter`                                         |
 | Auto-run | Click the ● dot next to the snippet name to enable — runs on every page load |
 
 ### Views
@@ -124,7 +125,7 @@ moss/
 
 ## How Script Injection Works
 
-MOSS uses the same approach as Tampermonkey to bypass Content Security Policy:
+MOSS injects scripts through the extension context, allowing custom code to run on many CSP-protected websites without relying on unsafe-eval:
 
 1. Your code is wrapped in a `Blob` with type `application/javascript`
 2. A temporary `blob:` URL is created from that blob
@@ -145,7 +146,7 @@ On top of that, MOSS uses `declarativeNetRequest` to strip `Content-Security-Pol
 | UI        | React 18, TypeScript                     |
 | Styling   | Tailwind CSS v3                          |
 | Editor    | CodeMirror 6 via `@uiw/react-codemirror` |
-| Build     | Vite 5 (multi-entry)                     |
+| Build     | Vite (multi-entry)                       |
 | Extension | Chrome MV3, declarativeNetRequest        |
 | Storage   | `chrome.storage.local`                   |
 

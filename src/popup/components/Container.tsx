@@ -12,7 +12,7 @@ export default function Container() {
   const activeScript = scripts.find((s) => s.id === activeId) ?? null;
 
   return (
-    <div className="flex flex-row gap-2 h-full min-h-0 w-[410px]">
+    <div className="flex flex-row gap-2 h-full min-h-0">
       <Sidebar
         open={open}
         scripts={scripts}
