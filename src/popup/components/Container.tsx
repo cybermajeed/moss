@@ -8,7 +8,7 @@ export default function Container() {
   const [open, setOpen] = useState(true);
   const [activeId, setActiveId] = useState<string | null>(null);
   const { scripts, addScript, updateScript, deleteScript, toggleEnabled } = useScripts();
-
+ 
   const activeScript = scripts.find((s) => s.id === activeId) ?? null;
 
   return (
