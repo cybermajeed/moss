@@ -12,9 +12,17 @@ MOSS is a Chrome extension for creating, managing, and executing custom JavaScri
 
 ## Screenshots
 
-|          Light Mode          |          Dark Mode          |
+|                              |                             |
 | :--------------------------: | :-------------------------: |
 | ![](public/assets/light.png) | ![](public/assets/dark.png) |
+
+|                            |                            |
+| :------------------------: | :------------------------: |
+| ![](public/assets/use.png) | ![](public/assets/use.png) |
+
+|            Before             |            After             |
+| :---------------------------: | :--------------------------: |
+| ![](public/assets/before.png) | ![](public/assets/after.png) |
 
 ---
 
