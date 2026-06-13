@@ -35,7 +35,15 @@ const Toolbar = () => {
         MOSS
       </div>
 
-      <button className={buttonStyle} title="Switch theme" onClick={() => setDark(prev => !prev)}>
+      <button className={buttonStyle} title="Switch theme" onClick={() => {
+        const newTheme = !dark;
+        console.log(newTheme);
+        setDark(newTheme);
+        chrome.storage.local.set({
+          darkMode: newTheme,
+        });
+      }
+      }>
         {dark
           ? <Sun size={iconsize} className="text-moss-300" />
           : <Moon size={iconsize} className="text-moss-700" />

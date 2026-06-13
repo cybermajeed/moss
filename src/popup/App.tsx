@@ -4,21 +4,14 @@ import Container from "@/popup/components/Container";
 import { ThemeContext } from "@/shared/context/ThemeContext";
 const App = () => {
   const [dark, setDark] = useState(true);
-  useEffect(() => {
-    chrome.storage.local
-      .get("darkMode")
-      .then((data: {
-        darkMode?: boolean
-      }) => {
-        setDark(
-          data.darkMode ?? true
-        );
-      });
-  }, []);
 
-  chrome.storage.local.set({
-    darkMode: dark,
-  });
+  useEffect(() => {
+    chrome.storage.local.get(null, console.log);
+    chrome.storage.local.get("darkMode", (result: { darkMode: boolean }) => {
+      console.log("theme is ", result.darkMode);
+      setDark(result.darkMode ?? true);
+    });
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle(
