@@ -23,7 +23,7 @@ const Toolbar = () => {
   };
 
   const openInSidePanel = async () => {
-    await chrome.sidePanel.setOptions({ path: "newtab/index.html", enabled: true });
+    await chrome.sidePanel.setOptions({ path: "./src/newtab/index.html", enabled: true });
     await chrome.sidePanel.open({ windowId: chrome.windows.WINDOW_ID_CURRENT });
     window.close();
   };
