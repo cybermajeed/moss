@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "MOSS v2",
-  "version": "0.1.0",
-  "description": "",
+  "version": "1.2.0",
+  "description": "MOSS (Modular Override Script System) is a Chrome extension that lets users inject and manage custom JavaScript on any website. Create, edit, enable, and organize scripts directly from the extension popup without opening external pages.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

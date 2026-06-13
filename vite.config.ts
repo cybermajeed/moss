@@ -14,12 +14,17 @@ export default defineConfig({
     rollupOptions: {
       input: {
         popup: resolve(__dirname, "src/popup/index.html"),
-        newtab: resolve(__dirname, "src/popup/newtab.html"),
+        newtab: resolve(__dirname, "src/newtab/index.html"),
         background: resolve(__dirname, "src/background/index.ts"),
         content: resolve(__dirname, "src/content/index.ts"),
       },
       output: {
-        entryFileNames: "[name]/index.js",
+        entryFileNames: (chunk) => {
+          if (["background", "content"].includes(chunk.name)) {
+            return "[name]/index.js";
+          }
+          return "assets/[name]-[hash].js";
+        },
         chunkFileNames: "shared/[name]-[hash].js",
         assetFileNames: "assets/[name]-[hash].[ext]",
       },
