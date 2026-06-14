@@ -110,6 +110,12 @@ npm run build
 
 ---
 
+## Project Architecture
+
+## !["arch](public/assets/moss_autorun_flow.png)
+
+---
+
 ## Project Structure
 
 ```
