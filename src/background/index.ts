@@ -5,23 +5,56 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.runtime.onMessage.addListener(
-  (message: MossMessage<RunScriptPayload>, _sender, sendResponse) => {
+  (message: MossMessage<RunScriptPayload>, sender, sendResponse) => {
     if (message.type === "RUN_SCRIPT" && message.payload?.code) {
       (async () => {
-        const [tab] = await chrome.tabs.query({
-          active: true,
-          currentWindow: true,
-        });
-        if (!tab?.id) {
+        let tabId = sender.tab?.id;
+
+        // If the message is not from a content script (e.g., popup or newtab), we find the active tab
+        if (!tabId || sender.url?.startsWith(chrome.runtime.getURL(""))) {
+          const tabs = await chrome.tabs.query({
+            active: true,
+            currentWindow: true,
+          });
+          tabId = tabs[0]?.id;
+        }
+
+        if (!tabId) {
           sendResponse({ ok: false, error: "No active tab" });
           return;
         }
+
         try {
           await chrome.scripting.executeScript({
-            target: { tabId: tab.id },
+            target: { tabId },
             world: "MAIN",
             func: (src: string) => {
-              (0, eval)(src);
+              try {
+                // Try blob injection to bypass eval() restrictions
+                const blob = new Blob([src], {
+                  type: "application/javascript",
+                });
+                const url = URL.createObjectURL(blob);
+                const script = document.createElement("script");
+                script.src = url;
+                script.onload = () => {
+                  URL.revokeObjectURL(url);
+                  script.remove();
+                };
+                script.onerror = () => {
+                  console.error(
+                    "[MOSS] Failed to load injected script via Blob.",
+                  );
+                  script.remove();
+                };
+                (document.head || document.documentElement).appendChild(script);
+              } catch (err) {
+                console.error(
+                  "[MOSS] Blob injection failed, fallback to eval",
+                  err,
+                );
+                (0, eval)(src);
+              }
             },
             args: [message.payload!.code],
           });
